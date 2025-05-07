@@ -65,14 +65,15 @@ terraform apply
 
 
 
-2. 🐳 Dockerize the Application
+2.🐳 Dockerize the Application:
+
 cd docker/
 docker build -t my-mern-app-frontend ./frontend
 docker build -t my-mern-app-backend ./backend
 
 
 
-3. 🚀 Setup CI/CD Pipeline
+3.🚀 Setup CI/CD Pipeline
 
 Using GitHub Actions or Jenkins:
 
@@ -85,21 +86,20 @@ Push to ECR
 Deploy to EC2 or Kubernetes
 
 
-4. ☸️ Deploy to Kubernetes
-
-  kubectl apply -f k8s/
-
-
+4.☸️ Deploy to Kubernetes
+   
+kubectl apply -f k8s/
 
 
-5. 📊 Setup Monitoring (Prometheus & Grafana)
+
+
+5.📊 Setup Monitoring (Prometheus & Grafana)
 
 Use Docker Compose or Helm to deploy Prometheus + Grafana.
 Add dashboards and alert rules.
 
 
-6. 🔐 Run Security Scanning
-
+6.🔐 Run Security Scanning
 Trivy:
 trivy image my-mern-app-backend
 SonarQube:
@@ -119,7 +119,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 
 📄 License
-
 MIT License
 
 
