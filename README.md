@@ -18,7 +18,7 @@ End-to-End DevOps Implementation for a MERN Stack Application using AWS Cloud, T
 
 ---
 
-## 📁 Folder Structure
+
 
 
 ---
