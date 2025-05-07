@@ -48,52 +48,49 @@ An end-to-end enterprise-grade DevOps implementation for a production-ready MERN
 
 mern-enterprise-devops/
 │
-├── terraform/ # Infrastructure as Code
-│ ├── main.tf
-│ ├── ec2.tf
-│ ├── vpc.tf
-│ └── outputs.tf
+├── terraform/                  # Infrastructure as Code
+│   ├── main.tf
+│   ├── ec2.tf
+│   ├── vpc.tf
+│   └── outputs.tf
 │
-├── ansible/ # Configuration management playbooks
-│ ├── install-docker.yml
-│ └── setup-node.yml
+├── ansible/                    # Configuration management playbooks
+│   ├── install-docker.yml
+│   └── setup-node.yml
 │
-├── docker/ # Dockerfiles for app
-│ ├── frontend/
-│ │ └── Dockerfile
-│ └── backend/
-│ └── Dockerfile
+├── docker/                     # Dockerfiles for app
+│   ├── frontend/
+│   │   └── Dockerfile
+│   └── backend/
+│       └── Dockerfile
 │
-├── k8s/ # Kubernetes manifests
-│ ├── frontend-deployment.yaml
-│ ├── backend-deployment.yaml
-│ ├── mongo-deployment.yaml
-│ └── ingress.yaml
+├── k8s/                        # Kubernetes manifests
+│   ├── frontend-deployment.yaml
+│   ├── backend-deployment.yaml
+│   ├── mongo-deployment.yaml
+│   └── ingress.yaml
 │
 ├── cicd/
-│ ├── github-actions/
-│ │ └── main.yml
-│ └── jenkins/
-│ └── Jenkinsfile
+│   ├── github-actions/
+│   │   └── main.yml
+│   └── jenkins/
+│       └── Jenkinsfile
 │
 ├── monitoring/
-│ ├── prometheus/
-│ └── grafana/
+│   ├── prometheus/
+│   └── grafana/
 │
 ├── devsecops/
-│ ├── trivy/
-│ │ └── trivy-scan.sh
-│ └── sonarqube/
-│ └── sonar-project.properties
+│   ├── trivy/
+│   │   └── trivy-scan.sh
+│   └── sonarqube/
+│       └── sonar-project.properties
 │
 ├── nginx/
-│ └── default.conf
+│   └── default.conf
 │
 ├── README.md
-└── architecture.png # Architecture diagram placeholder
-
-
-
+└── architecture.png            # Architecture diagram placeholder
 ---
 
 ## 📐 Architecture Diagram
