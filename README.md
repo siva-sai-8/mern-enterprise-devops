@@ -1,9 +1,6 @@
 # Mern-Enterprise-Devops
 End-to-End DevOps Implementation for a MERN Stack Application using AWS Cloud, Terraform (IaC), Docker, GitHub Actions, Jenkins, Ansible, Kubernetes, Prometheus-Grafana Monitoring, and DevSecOps Tools.
 
-# 🚀 Prod-Ready MERN DevOps
-
-An end-to-end enterprise-grade DevOps implementation for a production-ready MERN Stack application using AWS Cloud, Terraform, Docker, Kubernetes, Jenkins, GitHub Actions, Ansible, Prometheus-Grafana, and DevSecOps tools like Trivy and SonarQube.
 
 ---
 
@@ -113,7 +110,7 @@ Jr DevOps Engineer | AWS + Iac
 LinkedIn | GitHub
 
 
-📢 Contributing
+🤝 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 
