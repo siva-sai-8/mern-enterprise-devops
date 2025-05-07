@@ -43,56 +43,6 @@ An end-to-end enterprise-grade DevOps implementation for a production-ready MERN
 
 ---
 
-## 📁 Folder Structure
-
-
-mern-enterprise-devops/
-│
-├── terraform/                  # Infrastructure as Code
-│   ├── main.tf
-│   ├── ec2.tf
-│   ├── vpc.tf
-│   └── outputs.tf
-│
-├── ansible/                    # Configuration management playbooks
-│   ├── install-docker.yml
-│   └── setup-node.yml
-│
-├── docker/                     # Dockerfiles for app
-│   ├── frontend/
-│   │   └── Dockerfile
-│   └── backend/
-│       └── Dockerfile
-│
-├── k8s/                        # Kubernetes manifests
-│   ├── frontend-deployment.yaml
-│   ├── backend-deployment.yaml
-│   ├── mongo-deployment.yaml
-│   └── ingress.yaml
-│
-├── cicd/
-│   ├── github-actions/
-│   │   └── main.yml
-│   └── jenkins/
-│       └── Jenkinsfile
-│
-├── monitoring/
-│   ├── prometheus/
-│   └── grafana/
-│
-├── devsecops/
-│   ├── trivy/
-│   │   └── trivy-scan.sh
-│   └── sonarqube/
-│       └── sonar-project.properties
-│
-├── nginx/
-│   └── default.conf
-│
-├── README.md
-└── architecture.png            # Architecture diagram placeholder
----
-
 ## 📐 Architecture Diagram
 
 > Add your `architecture.png` here showing:
@@ -116,8 +66,6 @@ terraform apply
 
 
 2. 🐳 Dockerize the Application
-
-
 cd docker/
 docker build -t my-mern-app-frontend ./frontend
 docker build -t my-mern-app-backend ./backend
@@ -125,7 +73,9 @@ docker build -t my-mern-app-backend ./backend
 
 
 3. 🚀 Setup CI/CD Pipeline
+
 Using GitHub Actions or Jenkins:
+
 Run tests
 
 Build Docker images
@@ -136,13 +86,15 @@ Deploy to EC2 or Kubernetes
 
 
 4. ☸️ Deploy to Kubernetes
-kubectl apply -f k8s/
+
+  kubectl apply -f k8s/
+
+
 
 
 5. 📊 Setup Monitoring (Prometheus & Grafana)
 
 Use Docker Compose or Helm to deploy Prometheus + Grafana.
-
 Add dashboards and alert rules.
 
 
