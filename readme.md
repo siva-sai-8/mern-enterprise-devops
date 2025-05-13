@@ -133,11 +133,12 @@ Stored in `docs/` or Confluence/Notion:
 
 ---
 
+
 ## 🔐 Contributors
 
-Built by **Naga Siva Sai** — aspiring DevOps Engineer, focused on cloud-native architecture & automation.
+- 🛠️ Frontend & Backend App originally built by [RishiBakshii](https://github.com/RishiBakshii) under the MIT License.
+- 🚀 DevOps Infrastructure, CI/CD Pipeline, and Cloud Automation by **Naga Siva Sai** — aspiring DevOps Engineer, focused on cloud-native architecture & automation.
 
----
 
 ## 📄 License
 
