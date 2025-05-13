@@ -1,178 +1,145 @@
-## MERN Ecommerce: A Seamless Shopping Experience Powered by the MERN Stack, Redux Toolkit, and Material UI
+# 🚀 Enterprise-Grade MERN Stack DevOps Pipeline on AWS
 
-### Also try -> [https://mernchat.in](https://mernchat.in)
-### ```Note✨: I have another amazing project on``` [end-to-end-encrypted-chat-application](https://github.com/RishiBakshii/mern-chat) ```using Next.js, Prisma, Postgresql, Express, Socket.io.```
+This project implements a complete enterprise-level DevOps architecture for a MERN stack application. It includes CI/CD, containerization, security scanning, infrastructure as code, monitoring, secrets management, and automated deployments using modern tools and AWS services.
 
-**MERN Ecommerce** is a full-stack application designed to transform your online shopping experience. Built with the MERN stack (MongoDB, Express.js, React, Node.js), it leverages Redux Toolkit for efficient state management and Material UI for a sleek, user-friendly interface. This project offers a robust platform for both users and admins, packed with essential features for a seamless experience.
+> 📝 **Note**: The application code used in this project is based on [RishiBakshii/mern-ecommerce](https://github.com/RishiBakshii/mern-ecommerce), licensed under the MIT License. This repo focuses on the DevOps pipeline built around the app.
 
-![ecommerce-homepage](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/front.png?raw=true)
-<!-- ![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner4.jpg?raw=true) -->
-![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner3.jpg?raw=true)
+---
 
+## 📁 Tech Stack
 
-# **Features**
+- Frontend: React  
+- Backend: Node.js + Express  
+- Database: MongoDB (Atlas / self-hosted)  
+- DevOps Tools: GitHub Actions, Docker, Terraform, SonarQube, Trivy, ECR, EC2/ECS, NGINX, Prometheus, Grafana, AWS Secrets Manager, CloudWatch, Route 53, Certbot/ACM
 
-### **User:**
-- **Product Reviews:**
-  - Write, edit, and delete reviews.
-  - Instant updates on ratings and star percentages.
-  
-- **Wishlist:**
-  - Add, remove, and annotate products with personalized notes.
-  
-- **Order Management:**
-  - Create new orders and view order history.
-  
-- **Profile Management:**
-  - Manage email, username, and multiple addresses.
-  
-- **Shopping Cart:**
-  - Add products, adjust quantities, and view subtotals.
+---
 
-### **Admin:**
-- **Product Management:**
-  - Add, edit, delete, and soft-delete products.
-  - Manage product attributes like name and stock.
-  
-- **Order Management:**
-  - View and update order details and status.
+## 🗂️ Folder Structure
 
-### **Security & User Experience:**
-- **Secure Authentication:**
-  - Login, signup, OTP verification, password reset, and logout.
-
-- **Intuitive Interface:**
-  - Powered by Material UI for a visually appealing and user-friendly experience.
-
-### **Scalability:**
-- **Built for Growth:**
-  - Scalable architecture to handle increasing user demands.
+mern-enterprise-devops/
+├── frontend/ # React app
+├── backend/ # Express app
+├── .github/workflows/ # GitHub Actions CI/CD pipelines
+├── terraform/ # Infrastructure as Code (AWS setup)
+├── docker-compose.yml # Local and deployment config
+├── deploy.sh # Deployment script
+├── README.md
 
 
-# **Project Setup**
-
-### Prerequisites
-- Node.js ( version v21.1.0 or later )
-- MongoDB installed and running locally
-
-### Clone the project
-
-```bash
-  git clone https://github.com/RishiBakshii/mern-ecommerce.git
-```
-
-### Navigate to the project directory
-
-```bash
-  cd mern-ecommerce
-```
-
-### Install dependencies for frontend and backend separately
-**Tip:** To efficiently install dependencies for both frontend and backend simultaneously, use split terminals.
-
-Install frontend dependencies
-```bash
-cd frontend
-npm install
-```
-
-Install backend dependencies
-
-```bash
-cd backend
-npm install
-```
 
 
-### Environment Variables
-**Backend**
-- Create a `.env` file in the `backend` directory.
-- Add the following variables with appropriate values
-```bash
-# Database connection string
-MONGO_URI="mongodb://localhost:27017/your-database-name"
+---
 
-# Frontend URL (adjust if needed)
-ORIGIN="http://localhost:3000"
+## 🛠️ DevOps Pipeline Stages
 
-# Email credentials for sending password resets and OTPs
-EMAIL="your-email@example.com"
-PASSWORD="your-email-password"
+### ✅ 1. GitHub Repository & Branching Strategy
+- Branches: `main`, `develop`, `release/*`, `hotfix/*`
+- Pull Requests: Protected branches with mandatory reviews and checks
+- Actions: CI/CD triggered on push & PR to `main` and `develop`
 
-# Token and cookie expiration settings
-LOGIN_TOKEN_EXPIRATION="30d"  # Days
-OTP_EXPIRATION_TIME="120000"  # Milliseconds
-PASSWORD_RESET_TOKEN_EXPIRATION="2m"  # Minutes
-COOKIE_EXPIRATION_DAYS="30"    # Days
+### ✅ 2. Code Quality & Security
+- 🔍 SonarQube: Static code analysis for bugs, vulnerabilities, code smells
+- 🛡️ Trivy: Scans Docker images for vulnerabilities
+- 📦 Dependabot: Automatically updates vulnerable dependencies
 
-# Secret key for jwt security
-SECRET_KEY="your-secret-key"
+### ✅ 3. Build & Test Automation (CI)
+Via GitHub Actions:
+- Run unit tests (Jest, Mocha)
+- Lint checks (eslint)
+- Code quality (SonarQube)
+- Build React frontend and Node backend
 
-# Environment (production/development)
-PRODUCTION="false" # Initially set to false for development
-```
+### ✅ 4. Dockerization
+- Dockerfile for both frontend and backend
+- Multi-container setup via docker-compose
+- `.dockerignore` for clean images
 
-**Frontend**
-- Create a `.env` file in the `frontend` directory
-- Add the following variable:
-```bash
-# Backend URL (adjust if needed)
-REACT_APP_BASE_URL="http://localhost:8000" 
-```
+### ✅ 5. Container Registry
+- AWS ECR used for image storage
+- Tags used: `latest`, `dev`, `v1.0.0`, `release-*`, etc.
 
-**Important**
-- Replace all placeholders (e.g., your_database_name, your_email) with your actual values.
-- Exclude the `.env` file from version control to protect sensitive information.
+### ✅ 6. Infrastructure as Code (IaC)
+- Terraform scripts to provision:
+  - VPC, EC2, Security Groups
+  - ECR, IAM Roles, Secrets Manager
+  - RDS/MongoDB (if not Atlas)
+- Stored in `terraform/` folder
+- Executed via GitHub Actions or manually
 
-### Data seeding
-- **Get started quickly with pre-populated data**: Populate your database with sample users, products, reviews, and carts, enabling you to test functionalities without manual data entry.
+### ✅ 7. Secrets Management
+- 🔐 AWS Secrets Manager or Parameter Store
+- Credentials like DB URIs, API Keys injected securely at runtime
+- Never committed in GitHub or `.env` files
 
-**Steps**:
-- Open a new terminal window.
-- Navigate to the `backend` directory: `cd backend`
-- Run the seeding script: `npm run seed` ( This script executes the `seed.js` file within the `seed` subdirectory equivalent to running `node seed/seed.js` )
-### Running Development Servers
+### ✅ 8. CI/CD Deployment
+- Fully automated on push to `main` or `develop`
+- Steps:
+  1. Pull source
+  2. Run tests & SonarQube
+  3. Build Docker images
+  4. Push to ECR
+  5. Trigger `deploy.sh` on EC2 via SSH or SSM
 
-**Important:**
+### ✅ 9. Deployment Strategy
+- EC2: Docker Compose + NGINX + Certbot SSL
+- ECS Fargate: For serverless scaling (optional)
+- Blue/Green or Rolling deployments
 
-- **Separate terminals**: Run the commands in separate terminal windows or use `split terminal` to avoid conflicts.
-- **Nodemon required**: Ensure you have `nodemon` installed globally to run the backend development servers using `npm run dev`. You can install it globally using `npm install -g nodemon`.
+### ✅ 10. Monitoring & Logging
+- Prometheus + Grafana → Metrics
+- Loki or ELK Stack → Centralized Logging
+- Alerts via Slack, Email, PagerDuty (optional)
 
-#### Start the backend server
-- Navigate to the `backend` directory: `cd backend`
-- Start the server: `npm run dev` (or npm start)
-- You should see a message indicating the server is running, usually on port 8000.
-     
-#### Start the frontend server:
-- Navigate to the `frontend` directory: `cd frontend`
-- Start the server: `npm start`
-- You should see a message indicating the server is running, usually on port 3000.
+### ✅ 11. Domains & SSL
+- Route 53: DNS management
+- NGINX + Certbot (EC2) OR ACM (ECS)
+- Auto-renewal with Certbot or managed via ACM
 
-### Login with demo account (Optional)
-- After successfully seeding the database, you can now explore the application's functionalities using pre-populated sample data.
-- here are the `login credentials`
-```bash
-  email: demo@gmail.com
-  pass: helloWorld@123
-```
+### ✅ 12. IAM & Security
+- IAM roles with least privilege
+- GitHub Actions → OIDC authentication (no static keys)
+- Enforced access policies on S3, ECR, EC2
 
-- **Please Note**: While the demo account provides a convenient way to explore many features, it has some limitations:
-    - **Password Reset and OTP Verification**: Due to security reasons, the demo account uses a non-real email address. Therefore, password reset and OTP verification functionalities are not available for this account.
+### ✅ 13. Backups & Rollbacks
+- RDS snapshots, AMIs for EC2
+- Rollback via Docker image versioning (tagged releases)
+- Manual or automated restore supported
 
-    **What this means**:
-    - You cannot request a password reset or receive verification codes on the demo email address.
-    - To test password reset and OTP verification flows, you need to create a genuine account with a valid email address.
+### ✅ 14. Cost Optimization
+- Spot Instances or AutoStop EC2 for dev
+- Savings Plans for long-term
+- Budget Alerts via CloudWatch and AWS Budgets
 
-    **What to do?**
-    - If you're primarily interested in exploring other functionalities like wishlist, cart, and order history, the demo account is sufficient.
-    - To test password reset and OTP verification, create a personal account with a valid email address.
-### Accessing the Application
-Once both servers are running, you can access them at the following URL's:
-- Backend: http://localhost:8000
-- Frontend: http://localhost:3000
+### ✅ 15. Documentation
+Stored in `docs/` or Confluence/Notion:
+- Infrastructure Diagrams
+- CI/CD Flowcharts
+- Rollback Procedures
+- Secrets & IAM Policy Matrix
+- Onboarding Docs
 
-## **Bonus**
-Don't forget to star the repository and share your feedback!✨
+---
 
-## Authors
-- [@RishiBakshii](https://github.com/RishiBakshii)
+## ⚙️ Optional (But Advanced) Tools
+
+| Tool             | Purpose                          |
+|------------------|----------------------------------|
+| Ansible          | Server provisioning              |
+| ArgoCD           | GitOps-based K8s deployments     |
+| Nexus            | Internal artifact storage        |
+| HashiCorp Vault  | Advanced secrets management      |
+| K9s              | TUI for managing Kubernetes      |
+
+---
+
+## 🔐 Contributors
+
+Built by **Naga Siva Sai** — aspiring DevOps Engineer, focused on cloud-native architecture & automation.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.  
+Base application sourced from [RishiBakshii/mern-ecommerce](https://github.com/RishiBakshii/mern-ecommerce) and reused in compliance with its MIT license.
